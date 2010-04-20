@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MailChimp Sample</string>
+
+	<!--  SETTINGS FOR ACCESSING YOUR ACCOUNT -->
+	<string name="mc_api_key">0aa0dc69d5985e436ca7cb05e52f5e2e-us1</string>
+	<string name="mc_list_id">6bd123b0a3</string>
+
+	<!--  DISPLAY SETTINGS FOR HOW THE APPLICATION LOOKS -->
+	<string name="mc_dialog_title">Subscribe!</string>
+    <string name="mc_dialog_uploading_title">Uploading to MailChimp</string>
+    <string name="mc_dialog_uploading_desc">Adding e-mail to MailChimp</string>
+
+</resources>

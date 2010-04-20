@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView android:id="@+id/EMailLabel" android:text="E-Mail Address" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+	<EditText android:tag="mc.standard.email" android:id="@+id/EMailField" android:layout_below="@+id/EMailLabel" android:hint="Enter E-Mail Addy Here" android:layout_height="wrap_content" android:layout_width="fill_parent"></EditText>
+	<Button android:id="@+id/SubscribeButton" android:layout_below="@+id/EMailField" android:text="Subscribe" android:layout_height="wrap_content" android:layout_width="wrap_content"></Button>
+	<Button android:id="@+id/CancelButton" android:layout_toRightOf="@+id/SubscribeButton" android:layout_alignTop="@+id/SubscribeButton" android:text="Cancel" android:layout_height="wrap_content" android:layout_width="wrap_content"></Button>
+</RelativeLayout>
