@@ -42,7 +42,7 @@ public class ListMethodsTest extends AndroidTestCase {
 			// unsubscribe
 			assertTrue(api.listUnsubscribe(TestConstants.TEST_LIST_ID, TestConstants.TEST_EMAIL_ADDY));
 		} catch (MailChimpApiException e) {
-			Log.e("MailChimp", "Exception: " + e.getMessage());
+			Log.e("MailChimp", "testSingleSubscribeMergeTags, Exception: " + e.getMessage());
 			assertTrue(false);
 		}
 	}
@@ -62,7 +62,7 @@ public class ListMethodsTest extends AndroidTestCase {
 			assertTrue(api.listUnsubscribe(TestConstants.TEST_LIST_ID, TestConstants.TEST_EMAIL_ADDY));	
 			
 		} catch (MailChimpApiException e) {
-			Log.e("MailChimp", "Exception: " + e.getMessage());
+			Log.e("MailChimp", "testSingleSubscribe, Exception: " + e.getMessage());
 			assertTrue(false);
 		}
 	}
@@ -77,7 +77,7 @@ public class ListMethodsTest extends AndroidTestCase {
 			assertNotNull(info.lists);
 			assertTrue(info.lists.length > 0);
 		} catch (MailChimpApiException e) {
-			Log.e("MailChimp", "Exception: " + e.getMessage());
+			Log.e("MailChimp", "testMemberInfo: Exception: " + e.getMessage());
 			assertTrue(false);
 		}
 	}
@@ -170,7 +170,7 @@ public class ListMethodsTest extends AndroidTestCase {
 			assertTrue(groupInfo.groups.size() > 0);
 			assertFalse(groupInfo.groups.contains(testGroupName));
 		} catch (MailChimpApiException e) {
-			Log.e("MailChimp", "Exception: " + e.getMessage());
+			Log.e("MailChimp", "testInterestGroups, Exception: " + e.getMessage());
 			assertTrue(false);
 		}
 	}

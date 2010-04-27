@@ -10,7 +10,7 @@
 	
 	
 	<EditText android:tag="mc.standard.email" android:id="@+id/EMailField"
-		android:layout_below="@+id/EMailLabel" android:hint="Enter E-Mail Addy Here"
+		android:layout_below="@+id/EMailLabel" android:hint="Enter E-Mail Address Here"
 		android:layout_height="wrap_content" android:layout_width="fill_parent"></EditText>
 	
 	<RelativeLayout android:id="@+id/SignupButtonGroup" android:layout_width="fill_parent" android:layout_height="wrap_content"

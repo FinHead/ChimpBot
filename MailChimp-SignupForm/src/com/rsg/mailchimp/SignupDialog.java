@@ -12,7 +12,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,11 +20,9 @@ import android.widget.EditText;
 
 public class SignupDialog extends Dialog implements OnClickListener {
 
-	private SignupResultCallback callback;
 
-	public SignupDialog(Context context, SignupResultCallback callback) {
+	public SignupDialog(Context context) {
 		super(context);
-		this.callback = callback;
 	}
 
 	@Override
@@ -73,7 +70,7 @@ public class SignupDialog extends Dialog implements OnClickListener {
     	}
 	}
     
-    private void addToList(String emailAddy, final ProgressDialog progressDialog) {
+private void addToList(String emailAddy, final ProgressDialog progressDialog) {
     	
 		MergeFieldListUtil mergeFields = new MergeFieldListUtil();
 		mergeFields.addEmail(emailAddy);
@@ -86,27 +83,32 @@ public class SignupDialog extends Dialog implements OnClickListener {
 		mergeFields.addField("LNAME", "StoutMuntz");
 		
 		ListMethods listMethods = new ListMethods(getContext().getResources().getText(com.rsg.mailchimp.R.string.mc_api_key));
-		boolean success = false;
-		String errorMessage = null;
+		String message = "Signup successful!";
 		try {
 			listMethods.listSubscribe(getContext().getText(R.string.mc_list_id).toString(), emailAddy, mergeFields, null, true, true, false, true);
-			success = true;
 		} catch (MailChimpApiException e) {
 			Log.e("MailChimp", "Exception subscribing person: " + e.getMessage());
-			errorMessage = e.getMessage();
+			message = "Signup failed: " + e.getMessage();
 		} finally {
 			progressDialog.dismiss();
-			this.dismiss();
-			
-			if (success) {
-				callback.signupSuccess();
-			} else {
-				callback.signupFailure(errorMessage);
-			}
+			this.dismiss();			
+			showResult(message);
 		}
 		
     }
-	
-	
 
+	private void showResult(final String message) {
+		Runnable run = new Runnable() {
+			public void run() {
+				AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+				builder.setMessage(message).setPositiveButton("OK", new Dialog.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+				builder.create().show();
+			}
+		};
+		getOwnerActivity().runOnUiThread(run);
+	}
 }

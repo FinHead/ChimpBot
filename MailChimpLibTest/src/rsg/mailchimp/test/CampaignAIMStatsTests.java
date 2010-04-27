@@ -53,7 +53,7 @@ public class CampaignAIMStatsTests extends AndroidTestCase {
 				assertTrue(stat.stats.size() > 0);
 			}
 		} catch (MailChimpApiException e) {
-			Log.e("MailChimp", "Exception: " + e.getMessage());
+			Log.e("MailChimp", "testEmailStatsAIM, Exception: " + e.getMessage());
 			assertTrue(false);
 		}
 	}
