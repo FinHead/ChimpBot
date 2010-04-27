@@ -19,7 +19,6 @@ public class SignupActivity extends Activity implements OnClickListener {
         button.setOnClickListener(this);
     }
 
-	@Override
 	public void onClick(View v) {
 		SignupDialog dialog = new SignupDialog(this);
 		dialog.setOwnerActivity(this);

@@ -1,11 +1,7 @@
 package com.rsg.mailchimp;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 import rsg.mailchimp.api.MailChimpApiException;
 import rsg.mailchimp.api.lists.ListMethods;
-import rsg.mailchimp.api.lists.MergeFieldListUtil;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -72,20 +68,10 @@ public class SignupDialog extends Dialog implements OnClickListener {
     
 private void addToList(String emailAddy, final ProgressDialog progressDialog) {
     	
-		MergeFieldListUtil mergeFields = new MergeFieldListUtil();
-		mergeFields.addEmail(emailAddy);
-		try {
-			mergeFields.addDateField("BIRFDAY", (new SimpleDateFormat("MM/dd/yyyy")).parse("07/30/2007"));
-		} catch (ParseException e1) {
-			Log.e("MailChimp", "Couldn't parse date, boo: " + e1.getMessage());
-		}
-		mergeFields.addField("FNAME", "Ona");
-		mergeFields.addField("LNAME", "StoutMuntz");
-		
 		ListMethods listMethods = new ListMethods(getContext().getResources().getText(com.rsg.mailchimp.R.string.mc_api_key));
 		String message = "Signup successful!";
 		try {
-			listMethods.listSubscribe(getContext().getText(R.string.mc_list_id).toString(), emailAddy, mergeFields, null, true, true, false, true);
+			listMethods.listSubscribe(getContext().getText(R.string.mc_list_id).toString(), emailAddy);
 		} catch (MailChimpApiException e) {
 			Log.e("MailChimp", "Exception subscribing person: " + e.getMessage());
 			message = "Signup failed: " + e.getMessage();
