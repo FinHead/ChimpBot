@@ -1,15 +1,23 @@
 ChimpBot
 ---------
-Android API wrapper for the [mailchimp.com](http://mailchimp.com/api "MailChimp API") API.
+Android API wrapper for the [MailChimp API](http://mailchimp.com/api) API.
 
 
 ###Install & Setup
     
-Get your API key from [http://admin.mailchimp.com/account/api](http://admin.mailchimp.com/account/api/ "MailChimp API").
+Get your API key from the [Mail Chimp Account page](http://admin.mailchimp.com/account/api/).
 
 **Adding ChimpBot to a project**
 
-Download or build the jar file from the project and include it in the project you'd like to include MailChimp functionality for.  See the MailChimp-SignupForm project for a complete example.
+Download or build the jar file from the project ([current download here](http://github.com/downloads/mailchimp/ChimpBot/mailchimp.jar)) and include it in the project you'd like to include MailChimp functionality for.  See the MailChimp-SignupForm project for a complete example.
+
+**Building / Running the Projects**
+
+There are Eclipse project files included in each project directory.  To build these projects, you will need to
+
+*  Setup your Android development environment - see the [Android Developer Documentation]](http://developer.android.com/sdk/installing.html) for details on that.
+*  Fix the build path in the project to point to your installation/configuration of the Android development SDK.  Do this by going to project --> properties --> Java Build Path --> Libraries and selecting the Android classpath container and adjusting it to point to your library.
+
     
 -------------------
     
